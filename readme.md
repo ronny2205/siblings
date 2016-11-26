@@ -1,4 +1,4 @@
-#Node.js / Express.js API
+#Node.js / Express.js API and React.js fronend
 
 ##A simple API that stores data about Startup Institute alumni.
 
@@ -10,3 +10,10 @@ The API allows the user:
 The API was built with TDD, using Mocha and Chai.
 
 The database is Postgres an the ORM is Sequelize.
+
+
+
+
+To start both the node server and the react server locally:
+Install concurrently (npm install -g concurrently)
+Run: `concurrently "npm start" "cd client && npm start"`
