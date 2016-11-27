@@ -3,6 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 import Client from './Client';
 import Show from './Show';
+import AddAlum from './AddAlum';
 import { Grid, Row, Col, Navbar, Jumbotron, Button, Panel, Modal } from 'react-bootstrap';
 import axios from 'axios';
 
@@ -41,15 +42,9 @@ class App extends Component {
         <Jumbotron>
           <Grid>
             <h1>Startup Institute Alumni</h1>
-            <p>
-              <Button
-                bsStyle="success"
-                bsSize="large"
-                href="#"
-                target="_blank">
-                Add an Alum
-              </Button>
-            </p>
+            
+              <AddAlum />
+            
           </Grid>
         </Jumbotron>
         <Grid>
