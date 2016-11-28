@@ -87,6 +87,7 @@ class AddAlum extends Component {
          console.log(error);
        });
        this.setState({ showAddModal: false });
+       this.props.onCreate();
    }
 
 render() {

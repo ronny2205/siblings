@@ -15,16 +15,23 @@ class App extends Component {
      this.state = {
        alums: []
      };
+     this.getAlumData = this.getAlumData.bind(this);
    }
 
- componentDidMount() {
+   getAlumData() {
      axios.get('alums')
        .then(response => {
          const alums = response.data.map(obj => obj);
          this.setState({alums});
        });
    }
+
+ componentDidMount() {
+  this.getAlumData();
+   }
     
+
+  
 
   render() {
     return (
@@ -43,7 +50,7 @@ class App extends Component {
           <Grid>
             <h1>Startup Institute Alumni</h1>
             
-              <AddAlum />
+              <AddAlum onCreate={this.getAlumData}/>
             
           </Grid>
         </Jumbotron>
