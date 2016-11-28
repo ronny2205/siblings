@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Grid, Row, Col, Navbar, Jumbotron, Button, Panel, Modal, Form, FormControl, ControlLabel } from 'react-bootstrap';
+import axios from 'axios';
 
 class AddAlum extends Component {
 
@@ -24,6 +25,8 @@ class AddAlum extends Component {
      this.handleCohortChange = this.handleCohortChange.bind(this);
      this.handleCityChange = this.handleCityChange.bind(this);
      this.handleEmailChange = this.handleEmailChange.bind(this);
+     this.handleSubmit = this.handleSubmit.bind(this);
+
    }
 
    // componentDidMount() {
@@ -65,6 +68,26 @@ class AddAlum extends Component {
      this.setState({email: event.target.value});
    }
 
+
+   handleSubmit(event) {
+     event.preventDefault();
+     axios.post('alums', {
+        firstName: this.state.firstName.trim(),
+        lastName: this.state.lastName.trim(),
+        track: this.state.track.trim(),
+        cohort: this.state.cohort.trim(),
+         city: this.state.city.trim(),
+         email: this.state.email.trim()
+
+     })
+     .then(function (response) {
+         console.log(response);
+       })
+       .catch(function (error) {
+         console.log(error);
+       });
+       this.setState({ showAddModal: false });
+   }
 
 render() {
     return (
@@ -138,7 +161,7 @@ render() {
          </Modal.Body>
          <Modal.Footer>
            <Button onClick={this.handleHideAddModal}>Close</Button>
-           <Button bsStyle="success" onClick={this.handleHideAddModal}>Add</Button>
+           <Button bsStyle="success" onClick={this.handleSubmit}>Add</Button>
          </Modal.Footer>
        </Modal>
                  
