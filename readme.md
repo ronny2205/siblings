@@ -12,6 +12,8 @@ The API was built with TDD, using Mocha and Chai.
 The database is Postgres an the ORM is Sequelize.
 
 
+##Frontend Reactapp that consumes the API.
+Built with create-react-app and Bootstrap
 
 
 To start both the node server and the react server locally:
